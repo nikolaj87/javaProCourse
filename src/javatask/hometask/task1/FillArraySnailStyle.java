@@ -39,31 +39,30 @@ public class FillArraySnailStyle {
             verticalStart++;
             verticalEnd--;
         }
-        printArray();
     }
 
     void fillLeftToRight() {
         for (int i = horizontalStart; i < horizontalEnd - 1; i++) {
             array[verticalStart][i] = (int) (Math.random() * 9 + 1);
-            System.out.println("заполняю " + verticalStart + i);
+            printArray();
         }
     }
     void fillTopToBottom(){
         for (int j = verticalStart; j < verticalEnd; j++) {
             array[j][horizontalEnd - 1] = (int) (Math.random() * 9 + 1);
-            System.out.println("заполняю " + j + (horizontalEnd - 1));
+            printArray();
         }
     }
     void fillRightToLeft(){
         for (int i = horizontalEnd - 2; i >= horizontalStart; i--) {
             array[verticalEnd - 1][i] = (int) (Math.random() * 9 + 1);
-            System.out.println("заполняю " + (verticalEnd - 1) + i);
+            printArray();
         }
     }
     void fillBottomToTop(){
         for (int j = verticalEnd - 2; j > horizontalStart; j--) {
             array[j][horizontalStart] = (int) (Math.random() * 9 + 1);
-            System.out.println("заполняю " + j + (horizontalStart));
+            printArray();
         }
     }
 
@@ -74,6 +73,8 @@ public class FillArraySnailStyle {
                 System.out.print(array[i][j] + " ");
             }
         }
+        System.out.println();
+        System.out.print("==============================================");
     }
 
 }

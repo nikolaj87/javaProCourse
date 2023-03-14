@@ -3,7 +3,7 @@ package javatask.hometask.task1;
 public class FillArraySnailDemo {
     public static void main(String[] args) {
 
-        int[][] array = new int[5][3];
+        int[][] array = new int[3][5];
         int horizontalStart = 0;
         int horizontalEnd = array[0].length;
         int verticalStart = 0;

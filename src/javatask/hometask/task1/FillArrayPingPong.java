@@ -62,6 +62,7 @@ public class FillArrayPingPong {
             }
         }
         array[x][y] = (int) (Math.random() * 8 + 1);
+        printArray();
     }
 
     private boolean check2(){
@@ -76,14 +77,16 @@ public class FillArrayPingPong {
             System.out.println();
             for (int j = 0; j < array[0].length; j++) {
                 System.out.print(ints[j] + " ");
-
             }
         }
+        System.out.println();
+        System.out.print("===================================================");
     }
 
     private void rightTop(){
         while (x > 0 && y < array[0].length - 1) {
             array[x][y] = (int) (Math.random() * 8 + 1);
+            printArray();
             x--;
             y++;
         }
@@ -93,6 +96,7 @@ public class FillArrayPingPong {
     private void rightBottom(){
         while (x < array.length - 1 && y < array[0].length - 1) {
             array[x][y] = (int) (Math.random() * 8 + 1);
+            printArray();
             x++; y++;
         }
         method = 2;
@@ -101,6 +105,7 @@ public class FillArrayPingPong {
     private void leftBottom(){
         while (x < array.length - 1 && y > 0) {
             array[x][y] = (int) (Math.random() * 8 + 1);
+            printArray();
             x++; y--;
         }
         method = 3;
@@ -108,6 +113,7 @@ public class FillArrayPingPong {
     private void leftTop(){
         while (x > 0 && y > 0) {
             array[x][y] = (int) (Math.random() * 8 + 1);
+            printArray();
             x--;  y--;
         }
         method = 4;
