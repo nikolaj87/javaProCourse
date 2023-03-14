@@ -62,7 +62,7 @@ public class FillArrayPingPong {
             }
         }
         array[x][y] = (int) (Math.random() * 8 + 1);
-        printArray();
+//        printArray();
     }
 
     private boolean check2(){
