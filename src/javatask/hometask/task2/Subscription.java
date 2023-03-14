@@ -1,7 +1,5 @@
 package javatask.hometask.task2;
 
-import javatasks.march_13_2023.User;
-
 import java.util.ArrayList;
 
 public class Subscription {
