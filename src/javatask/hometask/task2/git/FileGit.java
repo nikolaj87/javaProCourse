@@ -1,10 +1,10 @@
 package javatask.hometask.task2.git;
 
-public class File {
+public class FileGit {
 
     private String fileName;
 
-    public File(String fileName) {
+    public FileGit(String fileName) {
         this.fileName = fileName;
     }
 }

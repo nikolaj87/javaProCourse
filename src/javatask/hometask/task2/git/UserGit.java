@@ -2,12 +2,12 @@ package javatask.hometask.task2.git;
 
 import java.util.ArrayList;
 
-public class User {
+public class UserGit {
     private String name;
-    private ArrayList<Repository> repositories = new ArrayList<>();
-    private ArrayList<Setting> settings = new ArrayList<>();
+    private ArrayList<RepositoryGit> repositories = new ArrayList<>();
+    private ArrayList<SettingGit> settings = new ArrayList<>();
 
-    public User(String name, ArrayList<Repository> repositories) {
+    public UserGit(String name, ArrayList<RepositoryGit> repositories) {
         this.name = name;
         this.repositories = repositories;
     }

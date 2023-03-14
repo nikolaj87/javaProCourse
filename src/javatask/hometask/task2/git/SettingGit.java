@@ -1,6 +1,6 @@
 package javatask.hometask.task2.git;
 
-public class Setting {
+public class SettingGit {
     private Boolean someSettings;
     private Boolean getSomeSettings2;
     private Boolean getSomeSettings3;
@@ -29,7 +29,7 @@ public class Setting {
         this.getSomeSettings3 = getSomeSettings3;
     }
 
-    public Setting(Boolean someSettings, Boolean getSomeSettings2, Boolean getSomeSettings3) {
+    public SettingGit(Boolean someSettings, Boolean getSomeSettings2, Boolean getSomeSettings3) {
         this.someSettings = someSettings;
         this.getSomeSettings2 = getSomeSettings2;
         this.getSomeSettings3 = getSomeSettings3;
