@@ -1,4 +1,4 @@
-package javatask.hometask.task2;
+package javatask.hometask.task2.youtube;
 
 
 //  сорян за лютую дичь

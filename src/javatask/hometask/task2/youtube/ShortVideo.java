@@ -1,4 +1,4 @@
-package javatask.hometask.task2;
+package javatask.hometask.task2.youtube;
 
 public class ShortVideo extends Video {
 
