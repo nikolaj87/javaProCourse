@@ -32,10 +32,11 @@ public class Task1 {
     }
 
     private static int findSingleElem(int[] arr){
+        if(arr[arr.length-2] != arr[arr.length-1])
+            return arr[arr.length-1];
         for (int i = 0; i < arr.length; i = i + 2) {
-            // если дошли до последнего элемента в массиве нечетного размера то возвращаем этот элемент
-            if (i == arr.length - 1 & arr.length % 2 == 1) return arr[i];
-            if (arr[i] != arr[i+1]) return arr[i];
+            if (arr[i] != arr[i+1])
+                return arr[i];
         }
         return -1;
     }
