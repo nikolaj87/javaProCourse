@@ -113,6 +113,8 @@ public class Task2 {
         return myStr;
     }
 
+
+
     private static int minLength(String[] arr){
         int min = arr[0].length();
         for (int i = 0; i < arr.length; i++) {
