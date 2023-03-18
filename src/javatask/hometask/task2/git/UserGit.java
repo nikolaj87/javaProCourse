@@ -2,7 +2,7 @@ package javatask.hometask.task2.git;
 
 import java.util.ArrayList;
 
-public class UserGit {
+public class UserGit implements Improvable{
     private String name;
     private ArrayList<RepositoryGit> repositories = new ArrayList<>();
     private ArrayList<SettingGit> settings = new ArrayList<>();
@@ -20,4 +20,9 @@ public class UserGit {
         System.out.println("repository delited");
     }
 
+    @Override
+    public void improve() {
+        System.out.println("юзер улучшает свои скилы");
+
+    }
 }

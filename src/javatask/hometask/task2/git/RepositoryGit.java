@@ -2,7 +2,7 @@ package javatask.hometask.task2.git;
 
 import java.util.ArrayList;
 
-public class RepositoryGit {
+public class RepositoryGit implements Improvable{
 
     private String repositoryName;
     private ArrayList<FileGit> files = new ArrayList<>();
@@ -21,4 +21,8 @@ public class RepositoryGit {
     }
 
 
+    @Override
+    public void improve() {
+        System.out.println("наводим порядок в репозитории");
+    }
 }

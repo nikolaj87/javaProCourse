@@ -5,7 +5,7 @@ public class Cashier implements Improvable {
     String name;
     int salary;
 
-    public void selProduct(){
+    public void selProduct(int idProduct, String name){
         //касир продает чтото
     }
 
