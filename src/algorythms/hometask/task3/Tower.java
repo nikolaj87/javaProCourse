@@ -6,7 +6,7 @@ import java.util.List;
 public class Tower {
 
     static int counterIteration = 1;
-    static int lastMove;
+    static int lastMoved;
     static int sizeGame;
     static List<Integer> first = new LinkedList<>();
     static List<Integer> second = new LinkedList<>();
@@ -18,37 +18,39 @@ public class Tower {
 
     public static void main(String[] args) {
         /*
-        * Перемещая детальки около часа я заметил такой алгоритм
-        * - если мы переместили деталь, то ее не трогаем следующим ходом
-        * - мы перемешам меньшую деталь из двух возможных
-        * - если есть однозначность в перемешении - меньшая на большую в одном
-        * варианте, то все просто.
-        * - если перемещяемая деталь меньше двух вариантов - надо проверять
-        * четность или нечетность порядка одиаковых деталей под ней. Четная идет
-        * на меньшую, нечетная - на большую.
-        *
-        * мы имеем 3 списка с числами - размерами деталей. Верхняя перекладывается
-        * из списка в список по алгоритму. После каждой итерации пирамидка распечатывает
-        * себя в консоль. Обошлись пока без фронтэнда)))
-        * уверен у этой задачи есть куда более изяшное решение, но это уже надо
-        * смотреть в интернет.
-        * */
+         * Перемещая детальки около часа я заметил такой алгоритм
+         * - если мы переместили деталь, то ее не трогаем следующим ходом
+         * - мы перемешам меньшую деталь из двух возможных
+         * - если есть однозначность в перемешении - меньшая на большую в одном
+         * варианте, то все просто.
+         * - если перемещяемая деталь меньше двух вариантов - надо проверять
+         * четность или нечетность порядка одиаковых деталей под ней. Четная идет
+         * на меньшую, нечетная - на большую.
+         *
+         * мы имеем 3 списка с числами - размерами деталей. Верхняя перекладывается
+         * из списка в список по алгоритму. После каждой итерации пирамидка распечатывает
+         * себя в консоль. Обошлись пока без фронтэнда)))
+         * уверен у этой задачи есть куда более изяшное решение, но это уже надо
+         * смотреть в интернет.
+         * */
 
         generateDetails();
 
-        lastMove = first.get(first.size() - 1);
-        second.add(lastMove);
-        first.remove((Integer) lastMove);
+        Printer.print();
+
+        lastMoved = first.get(first.size() - 1);
+        second.add(lastMoved);
+        first.remove((Integer) lastMoved);
 
         Printer.print();
 
 
-        while ( !(first.isEmpty() && third.isEmpty() || (first.isEmpty() &&
-                second.isEmpty()))  ) {
+        while (!(first.isEmpty() && third.isEmpty() || (first.isEmpty() &&
+                second.isEmpty()))) {
 
             topDetailsGenerate();
 
-            if (first.contains(lastMove)) {
+            if (first.contains(lastMoved)) {
                 if (detail2 < detail3) {
                     secondMove();
                 } else {
@@ -58,7 +60,7 @@ public class Tower {
 
             topDetailsGenerate();
 
-            if (second.contains(lastMove)) {
+            if (second.contains(lastMoved)) {
                 if (detail1 < detail3) {
                     firstMove();
                 } else {
@@ -68,7 +70,7 @@ public class Tower {
 
             topDetailsGenerate();
 
-            if (third.contains(lastMove)) {
+            if (third.contains(lastMoved)) {
                 if (detail1 < detail2) {
                     firstMove();
                 } else {
@@ -78,34 +80,33 @@ public class Tower {
         }
     }
 
-
     private static void thirdMove() {
 
-        lastMove = third.get(third.size() - 1);
+        lastMoved = third.get(third.size() - 1);
 
-        if (lastMove < detail1 && lastMove > detail2) {
-            first.add(lastMove);
+        if (lastMoved < detail1 && lastMoved > detail2) {
+            first.add(lastMoved);
         }
-        if (lastMove > detail1 && lastMove < detail2) {
-            second.add(lastMove);
+        if (lastMoved > detail1 && lastMoved < detail2) {
+            second.add(lastMoved);
         }
-        if (lastMove < detail1 && lastMove < detail2) {
+        if (lastMoved < detail1 && lastMoved < detail2) {
             if (check(third)) {
                 if (detail1 < detail2) {
-                    first.add(lastMove);
+                    first.add(lastMoved);
                 } else {
-                    second.add(lastMove);
+                    second.add(lastMoved);
                 }
             } else {
                 if (detail1 < detail2) {
-                    second.add(lastMove);
+                    second.add(lastMoved);
                 } else {
-                    first.add(lastMove);
+                    first.add(lastMoved);
                 }
 
             }
         }
-        third.remove((Integer) lastMove);
+        third.remove((Integer) lastMoved);
         counterIteration++;
         Printer.print();
     }
@@ -113,61 +114,61 @@ public class Tower {
 
     private static void secondMove() {
 
-        lastMove = second.get(second.size() - 1);
+        lastMoved = second.get(second.size() - 1);
 
-        if (lastMove < detail1 && lastMove > detail3) {
-            first.add(lastMove);
+        if (lastMoved < detail1 && lastMoved > detail3) {
+            first.add(lastMoved);
         }
-        if (lastMove > detail1 && lastMove < detail3) {
-            third.add(lastMove);
+        if (lastMoved > detail1 && lastMoved < detail3) {
+            third.add(lastMoved);
         }
-        if (lastMove < detail1 && lastMove < detail3) {
+        if (lastMoved < detail1 && lastMoved < detail3) {
             if (check(second)) {
                 if (detail1 < detail3) {
-                    first.add(lastMove);
+                    first.add(lastMoved);
                 } else {
-                    third.add(lastMove);
+                    third.add(lastMoved);
                 }
             } else {
                 if (detail1 < detail3) {
-                    third.add(lastMove);
+                    third.add(lastMoved);
                 } else {
-                    first.add(lastMove);
+                    first.add(lastMoved);
                 }
             }
         }
 
-        second.remove((Integer) lastMove);
+        second.remove((Integer) lastMoved);
         counterIteration++;
         Printer.print();
     }
 
     private static void firstMove() {
 
-        lastMove = first.get(first.size() - 1);
+        lastMoved = first.get(first.size() - 1);
 
-        if (lastMove < detail2 && lastMove > detail3) {
-            second.add(lastMove);
+        if (lastMoved < detail2 && lastMoved > detail3) {
+            second.add(lastMoved);
         }
-        if (lastMove > detail2 && lastMove < detail3) {
-            third.add(lastMove);
+        if (lastMoved > detail2 && lastMoved < detail3) {
+            third.add(lastMoved);
         }
-        if (lastMove < detail2 && lastMove < detail3) {
+        if (lastMoved < detail2 && lastMoved < detail3) {
             if (check(first)) {
                 if (detail2 < detail3) {
-                    second.add(lastMove);
+                    second.add(lastMoved);
                 } else {
-                    third.add(lastMove);
+                    third.add(lastMoved);
                 }
             } else {
                 if (detail2 < detail3) {
-                    third.add(lastMove);
+                    third.add(lastMoved);
                 } else {
-                    second.add(lastMove);
+                    second.add(lastMoved);
                 }
             }
         }
-        first.remove((Integer) lastMove);
+        first.remove((Integer) lastMoved);
         counterIteration++;
         Printer.print();
     }
@@ -196,7 +197,6 @@ public class Tower {
         detail2 = second.size() == 0 ? Integer.MAX_VALUE - 2 : second.get(second.size() - 1);
         detail3 = third.size() == 0 ? Integer.MAX_VALUE - 3 : third.get(third.size() - 1);
     }
-
 
 
 }
