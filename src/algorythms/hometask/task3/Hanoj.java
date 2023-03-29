@@ -40,17 +40,15 @@ public class Hanoj {
             while (true) {
                 move((ArrayList) tower1, (ArrayList) tower3);
                 if ((tower1.isEmpty() && tower2.isEmpty()) || (tower1.isEmpty() && tower3.isEmpty())){
-                    System.out.println("отладка этап1");
                     break;
                 }
                 move((ArrayList) tower1, (ArrayList) tower2);
                 if ((tower1.isEmpty() && tower2.isEmpty()) || (tower1.isEmpty() && tower3.isEmpty())){
-                    System.out.println("отладка этап2");
                     break;
                 }
                 move((ArrayList) tower2, (ArrayList) tower3);
                 if ((tower1.isEmpty() && tower2.isEmpty()) || (tower1.isEmpty() && tower3.isEmpty())){
-                    System.out.println("отладка этап3");
+
                     break;
                 }
                 System.out.print("iter: " + counter + " " + tower1 + " " + tower2 + " " + tower3 + "\n");
