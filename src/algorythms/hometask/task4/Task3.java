@@ -25,7 +25,7 @@ public class Task3 {
 
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                arr[i][j] = random.nextInt(10);
+                arr[i][j] = random.nextInt(10, 99);
                 System.out.print(arr[i][j] + " ");
             }
             System.out.println();
@@ -48,20 +48,21 @@ public class Task3 {
 // к несушествуюшим индексам.
     private static boolean check(int i, int j, int[][] arr) {
         int top = arr[i][j];
-        for (int k = i - 1; k < i + 2; k++) {
+        for (int k = i - 1; k <= i + 1; k++) {
             if (k < 0 || k == arr.length) continue;
 
-            for (int l = j - 1; l < j + 2; l++) {
-                if (l < 0 || l == arr.length) continue;
-                if (k == i - 1 && l == j - 1) continue;
-                if (k == i + 1 && l == j - 1) continue;
-                if (k == i - 1 && l == j + 1) continue;
-                if (k == i + 1 && l == j + 1) continue;
+            for (int l = j - 1; l <= j + 1; l++) {
+                if ((l < 0 || l == arr.length) ||
+                     (k == i - 1 && l == j - 1) ||
+                       (k == i + 1 && l == j - 1) ||
+                         (k == i - 1 && l == j + 1) ||
+                           (k == i + 1 && l == j + 1))
+                    continue;
                 if (top < arr[k][l])
                     return false;
             }
         }
-        System.out.println("элемент [" + i + "][" + j + "] " + arr[i][j] + " является пиковым");
+        System.out.println("элемент [" + i + "][" + j + "] " + top + " является пиковым");
         return true;
     }
 }
