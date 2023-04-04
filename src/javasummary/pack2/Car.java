@@ -1,4 +1,4 @@
-package javasummary;
+package javasummary.pack2;
 
 public abstract class Car {
 

@@ -43,7 +43,7 @@ public class WordFromChars {
     }
 
     private static List<Character> charGenerate(int size) {
-        List<Character> list = new ArrayList<>(12);
+        List<Character> list = new ArrayList<>(size);
 
         for (int i = 0; i < size; i++) {
             list.add((char) (new Random().nextInt('a', 'z' + 1)));

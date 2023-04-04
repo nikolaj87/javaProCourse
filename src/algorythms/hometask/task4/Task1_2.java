@@ -8,7 +8,7 @@ public class Task1_2 {
 
 //            Task 2. Даны два целых числа x и n, напишите функцию для вычисления x^n
 //        решение 1 - рекурсивно O(n)
-          System.out.println(function(2, 55));
+          System.out.println(function(2, 1));
 
 //        решение 2 - улучшить решение 1 до O(log n)
 //        кстати спасибо за задачу. Люблю когда приходится доставать карандаш и думать. Ато большинство задач Tel-Ran
@@ -17,11 +17,13 @@ public class Task1_2 {
           System.out.println(function2(2, 55));
 
 //        System.out.println(functionRecurs(x));
+
+//          System.out.println(function3(2, 55));
     }
 
 
      private static long function(int x, double n) {
-         if (n == 1) return x;
+         if (n == 0) return 1;
          return x * function(x, n - 1);
      }
 
@@ -37,7 +39,7 @@ public class Task1_2 {
         int num = 1;
         int size = n;
 
-        while (size > 0) {                 //внешний вайл образает размер степени до ближайшей возможной 2 в какойто степени
+        while (size > 0) {                 //внешний вайл образает размер степени
             while (num < size / 2) {       //внутренний вайл умножает число само на себя нужное кол-во раз
                 multiplier *= multiplier ;
                 num *= 2;
@@ -48,6 +50,12 @@ public class Task1_2 {
             multiplier = x;
         }
         return sum;
+    }
+
+    public static void function3 (int x, int n) {
+        while(true) {
+           int multi = n/2;
+        }
     }
 
 
@@ -75,3 +83,4 @@ public class Task1_2 {
 
 
 }
+
