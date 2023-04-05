@@ -35,6 +35,7 @@ public class Competition<T extends Player>{
         participants.add(player);
     }
 
+
     public Player findWinner (List<T> list) {
 
         double maxScore = 0;

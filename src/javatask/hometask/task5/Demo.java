@@ -9,6 +9,9 @@ public class Demo {
         for (int i = 0; i < 5; i++) {
             leagueSecond.addParticipant(SecondLeaguePlayer.randomPlayer());
         }
+
+        FirstLeaguePlayer.randomPlayer().play(SecondLeaguePlayer.randomPlayer());
+
         System.out.println(leagueSecond);
         System.out.println("winner of " + leagueSecond.getName() + " is " +
                 leagueSecond.findWinner(leagueSecond.getParticipants()));
