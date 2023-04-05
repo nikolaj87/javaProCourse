@@ -27,7 +27,7 @@ public class ListNode {
                 return true;
             }
         }
-        return true;
+        return false;
     }
 
 

@@ -13,7 +13,4 @@ public class FirstLeaguePlayer extends Player{
         return new FirstLeaguePlayer(names[new Random().nextInt(names.length - 1)],
                 new Random().nextInt(6) + 10);
     }
-
-
-
 }
