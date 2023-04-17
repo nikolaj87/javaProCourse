@@ -1,6 +1,6 @@
 package javatask.hometask.task6;
 
-public class CharListIterator {
+public class twoWords {
 
     public static void main(String[] args) {
 
@@ -18,11 +18,9 @@ public class CharListIterator {
         for (int i = word1.length() - 1; i >= 0; i--) {        //пойдем с конца слова так проще чем угадывать что там будет и чтото запоминать
             if (word1.charAt(i) == '#') {                      //нашли решетку? Записали ее в счетчик чтоб позже удалить символ
                 counter++;
-            }
-            else if (counter > 0 && word1.charAt(i) != '#') {     //нашли символ? но его надо удалить ведь счетчик решеток положительный
+            } else if (counter > 0 && word1.charAt(i) != '#') {     //нашли символ? но его надо удалить ведь счетчик решеток положительный
                 counter--;
-            }
-            else if (counter == 0 && word1.charAt(i) != '#') {   //нашли символ и счетчик решеток равен ноль? Запишем символ в новое слово
+            } else if (counter == 0 && word1.charAt(i) != '#') {   //нашли символ и счетчик решеток равен ноль? Запишем символ в новое слово
                 newStrMirror += word1.charAt(i);
             }
         }
