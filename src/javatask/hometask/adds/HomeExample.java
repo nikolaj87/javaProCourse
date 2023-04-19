@@ -33,6 +33,7 @@ package javatask.hometask.adds;
                 if (currentChar == '#' && newString.length() > 0) {
                     newString = newString.substring(0, newString.length() - 1);
                 } else if (currentChar == '#') {
+                    continue;
                 } else {
                     newString += currentChar;
 
