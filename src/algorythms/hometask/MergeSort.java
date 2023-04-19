@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] array = {10, 8, 7, 5, 13, 11};
+        int[] array = {10, 8, 7, 5, 13, 11, 0 , 1, 2};
         mergeSortRecursive(array, array.length);
     }
 
@@ -28,8 +28,28 @@ public class MergeSort {
         mergeSortRecursive(l, mid);
         mergeSortRecursive(r, n - mid);
 
-        System.out.println(Arrays.toString(l));
-        System.out.println(Arrays.toString(r));
+        merge(array, l, r, mid, n-mid);
+
+//        System.out.println(Arrays.toString(l));
+//        System.out.println(Arrays.toString(r));
+        System.out.println("new " + Arrays.toString(array));
+    }
+
+    static void merge(int[] array, int[] l, int[] r, int left, int right) {
+        int i = 0, j = 0, k = 0;
+        while(i < left && j < right) {
+            if (l[i] < r[j]) {
+                array[k++] = l[i++];
+            } else {
+                array[k++] = r[j++];
+            }
+        }
+        while(i < left) {
+            array[k++] = l[i++];
+        }
+        while(j < right) {
+            array[k++] = r[j++];
+        }
     }
 
 }
