@@ -9,7 +9,6 @@ package javatask.hometask.adds;
             System.out.println(getWord("Ja#va###", ""));
             System.out.println(getWord("##Ja####va#", "v"));
             System.out.println(getWord("#Hello#World#","HellWorl"));
-
         }
 
         public static boolean getWord(String str, String str2) {
