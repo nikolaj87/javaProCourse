@@ -4,7 +4,7 @@ package algorythms.hometask.task5;
 public class Task1 {
 
     public static void main(String[] args) {
-        int N = 120345;
+        int N = 706543;
         System.out.println("сумма цифр числа = " + function(N, 10, 0));
         System.out.println("число в перевернутом виде: ");
         function2(N, 10);
