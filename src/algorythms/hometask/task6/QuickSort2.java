@@ -37,12 +37,12 @@ public class QuickSort2 {
     private static void mySort(int start, int finish) {
 
         int i = start, j = finish, temp;
-        int pivot = array[start + (finish-start)/2];
-        System.out.println(pivot);
+        int element = array[start + (finish-start)/2];   //опорный строго посередине
+        System.out.println(element);
 
         while (i <= j) {
-            while (array[i] < pivot) i++;      //если слева меньше опорного пропускаем
-            while (array[j] > pivot) j--;      //если справа больше опорного прорускаем
+            while (array[i] < element) i++;      //если слева меньше опорного пропускаем
+            while (array[j] > element) j--;      //если справа больше опорного прорускаем
             if (i <= j) {                      //нашли нарушение порядка - меняем местами
                 temp = array[i];
                 array[i++] = array[j];

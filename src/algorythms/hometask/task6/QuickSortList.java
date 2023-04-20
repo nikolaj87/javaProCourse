@@ -24,7 +24,7 @@ public class QuickSortList {
         System.out.println("array after sort " + list);
     }
 
-    static void function(List<Integer> list) {
+    private static void function(List<Integer> list) {
 
         if (list.size() < 2) return;                //базовый случай
 
@@ -46,7 +46,7 @@ public class QuickSortList {
         }
 
 
-    static void construct(List<Integer> list, List<Integer> l, List<Integer> r, int element) {
+    private static void construct(List<Integer> list, List<Integer> l, List<Integer> r, int element) {
 
         int count = list.size() - (l.size() + r.size());     //счетчик помнит количество опорных элементов
         list.clear();                                        //надо обязательно почистить список перед сборкой

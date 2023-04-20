@@ -18,12 +18,11 @@ public class QuickSort {
          */
 
         int[] array = {5, 1, 3, 7, 9, 0, 1};
-        System.out.println("array before sort ");
-        System.out.println(Arrays.toString(array));
+        System.out.println("array before sort " + Arrays.toString(array));
         function(array, 0, array.length - 1);
     }
 
-    static void function(int[] array, int start, int end) {
+    private static void function(int[] array, int start, int end) {
 
         if (start >= end) return;
 
@@ -53,8 +52,7 @@ public class QuickSort {
 //        function(array, start, i);
 //        function(array, j, end);
 
-        System.out.println("array before sort ");
-        System.out.println(Arrays.toString(array));
+        System.out.println("array AFTER sort " + Arrays.toString(array));
     }
 
 }
