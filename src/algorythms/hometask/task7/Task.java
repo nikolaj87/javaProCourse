@@ -1,6 +1,7 @@
 package algorythms.hometask.task7;
 
 import java.util.Arrays;
+import java.util.function.Function;
 
 public class Task {
 
@@ -13,17 +14,22 @@ public class Task {
         System.out.println("before " + Arrays.toString(arr));
         System.out.println("after1 " + Arrays.toString(increment(arr)));
         System.out.println("after2 " + Arrays.toString(increment2(arr)));
-
+        System.out.println("after3" + Arrays.toString(increment3(new int[]{9, 9, 9, 9})));
 
     }
-
+    //начали стримы учить. Тоже допустимый вариант решения в строчку:
+    private static int[] increment3(int[] arr) {
+        return Integer.toString(Arrays.stream(arr).reduce((e1, e2) -> 10 * e1 + e2)
+                        .getAsInt() + 1).chars().map(c -> c - '0').toArray();
+    }
+    //=======================================================================================================
     //самое очевидное решение:
     private static int[] increment(int[] arr) {
-        String str = "";
+        StringBuilder str = new StringBuilder();
         for (int j : arr) {
-            str += j;
+            str.append(j);
         }
-        str = String.valueOf(Integer.parseInt(str) + 1);
+        str = new StringBuilder(String.valueOf(Integer.parseInt(str.toString()) + 1));
 
         int[] newArray = new int[str.length()];
         for (int i = 0; i < newArray.length; i++) {
