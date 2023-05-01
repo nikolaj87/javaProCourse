@@ -1,7 +1,6 @@
 package algorythms.hometask.task7;
 
 import java.util.*;
-import java.util.function.Function;
 
 public class Task {
 
@@ -11,24 +10,6 @@ public class Task {
     //будет представлено массивом [5, 4, 6]. Прибавить к этому "числу" 1.
 
     public static void main(String[] args) {
-
-        List<Long> list = new ArrayList<>();
-        list.add(2L);
-        list.add(3L);
-        list.add(null);
-        list.sort(Comparator.nullsFirst(Comparator.naturalOrder()));
-        System.out.println(list);
-
-        System.out.println( "A" .compareTo( "B"));
-        String one1 = "One";
-        String one2 = "One";
-        String one3 = new String("One");
-        String one4 = new String("One");
-
-        System.out.println(one3 == one4);
-//        System.out.println(one2.equals(one3));
-
-
 
         int[] arr = {1, 2, 3, 9};
         System.out.println("before " + Arrays.toString(arr));
@@ -53,7 +34,7 @@ public class Task {
 
         int[] newArray = new int[str.length()];
         for (int i = 0; i < newArray.length; i++) {
-            newArray[i] = str.charAt(i) - 48;
+            newArray[i] = str.charAt(i) - '0';
         }
         return newArray;
     }

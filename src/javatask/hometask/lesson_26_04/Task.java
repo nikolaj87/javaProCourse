@@ -1,12 +1,14 @@
 package javatask.hometask.lesson_26_04;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class Task {
     public static void main(String[] args) {
 
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 11, 5, 6, 6, 7,
-                8, 9, 10);
+
+        List<Integer> numbers =
+                Arrays.asList(1, 2, 3, 4, 11, 5, 6, 6, 7, 8, 9, 10);
         int[] arr = {1, 2, 3, 65, 47, 89};
 
         System.out.println("повторения? " + Arrays.toString(arr));
@@ -41,8 +43,9 @@ public class Task {
         // чисел в списке
         System.out.println("=============================");
         System.out.println("максимальная длина последовательности " +
-          "чисел = " + originalNumberLength(numbers));
-        System.out.println("КАК ЖЕ СДЕЛАТЬ СТРИМАМИ?");
+                "чисел = " + originalNumberLength(numbers));
+        System.out.println("максимальная длина последовательности " +
+                "чисел Streams = " + originalNumberLength2(numbers));
 
 
         // Преобразование списка строк в список чисел
@@ -85,17 +88,22 @@ public class Task {
          */
         System.out.println("=============================");
         int[] arr2 = {2, 3, 5, 6, 4, 7, 8};
+        List<Integer> l = List.of(2, 3, 5, 6, 4, 7, 8);
         int k = 10;
         System.out.println(Arrays.toString(arr2));
         System.out.println("кол-во пар массива составляющих " + k + " = " +
                 +pairs(arr2, k));
-        System.out.println("кол-во пар массива составляющих ДОДЕЛАТЬ" + k + " = " +
-                +pairsStream(arr2, k));
+        System.out.println("кол-во пар массива составляющих " + k + " STREAMS = " +
+                +pairsStream(l, k));
     }
 
     // находит совпадения пар элементов дающих в сумме k
-    private static int pairsStream(int[] array, int k) {
-        return 3;
+    private static int pairsStream(List<Integer> list, int k) {
+
+        return IntStream.range(0, list.size() - 1)
+                .mapToObj(o -> list.stream().skip(o + 1)
+                        .filter(el -> el + list.get(o) == k).toList())
+                .flatMap(Collection::stream).toList().size();
     }
 
     // находит совпадения пар элементов дающих в сумме k
@@ -145,6 +153,7 @@ public class Task {
 
     // проверяет кол во вхождений неповторяющихся чисел
     private static int originalNumberLength(List<Integer> list) {
+        System.out.println(list);
         int counterMax = 0, temp = 1;
 
         for (int i = 0; i < list.size() - 1; i++) {
@@ -158,21 +167,31 @@ public class Task {
             }
         }
         return Math.max(temp, counterMax);
+    }
 
-//        list = list.stream()
-//                .map(el -> {
-//
-//                    if (el == count.get()) {
-//                        count.getAndIncrement();
-//                        System.out.println(count);
-//                    } else {
-//                        count.getAndSet(el);
-//                    }
-//                    return el;
-//                })
-//                .toList();
-//        System.out.println(list);
-//        System.out.println(count);
+    private static int originalNumberLength2(List<Integer> list) {
+        List<Integer> listOfIndexes = new ArrayList<>();
+        listOfIndexes.add(0);
+        listOfIndexes.add(list.size());
+//создадим список индексов которые делят лист на последовательности:
+        listOfIndexes.addAll(1, IntStream.iterate(0, i -> ++i)
+                .limit(list.size() - 1)
+                .filter(e -> list.get(e) + 1 != list.get(e + 1))
+                .map(e -> ++e)
+                .boxed().toList());
+//найдем расстояние между индексами и вычислим наибольшее через стрим
+        return IntStream.range(0, (listOfIndexes.size()))
+                .skip(1)
+                .map(e -> listOfIndexes.get(e) - listOfIndexes.get(e - 1))
+                .reduce(Math::max)
+                .getAsInt();
+
+//        int[] points = {0, x, list.size()};
+//        System.out.println( "максимальная длина последовательности " +
+//        IntStream.rangeClosed(0, 1)
+//                .mapToObj(i -> list.subList(points[i], points[i + 1]))
+//                .map(List::size).reduce(Integer::max).get()
+//        );
 
     }
 

@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public class Lesson28_04 {
 
@@ -52,15 +53,11 @@ public class Lesson28_04 {
         //из списка слов вывести первое по алфавиту
         Arrays.stream(arr).sorted().findFirst();
         //посчитать колво чисел от 1 до 1000 которые делятся на 7
-        int[] arrayOneToThousand = new int[1001];
-        for (int i = 0; i <= 1000; i++) arrayOneToThousand[i] = i;
-        Arrays.stream(arrayOneToThousand).filter(e -> e % 7 == 0)
-                .count();
+        Stream.iterate(0, e -> ++e).limit(1000)
+                .filter(e -> e % 7 == 0).count();
         //посчитать сумму квадратов чисел от 1 до 10
-        int[] oneToTenArray = new int[11];
-        for (int i = 0; i < 11; i++) oneToTenArray[i] = i;
-        Arrays.stream(oneToTenArray).mapToDouble(e -> Math.pow(e, 2))
-                .reduce(Double::sum);
+        Stream.iterate(1, e -> ++e).limit(10)
+                .mapToDouble(e -> Math.pow(e, 2)).reduce(Double::sum);
         //вывести абривиатуру S.M.A.R.T. по 1 букве каждого слова
         List<String> myStrList = Arrays.asList("Specific", "Measurable",
                 "Achievable", "Relevant", "Time-bound");
