@@ -1,6 +1,6 @@
 package javatask.hometask.task2.Lidl;
 
-public class Product {
+ class Product {
 
     String productName;
     Double price;
