@@ -22,7 +22,7 @@ public class CatExamples {
 
         // 1. Получить Map<String, Boolean> имя / информация, голодна ли кошка?
         System.out.println("мапа  имя - голод " + task1(catList));
-        // 2. Получить Map<String, Long> цвет / количество кошек данного цвета
+        // 2. Получить Map<String, Long> цвет / количество кошек данного цвета?
         System.out.println("мапа  цвет - кол-во " + task2(catList));
         // 3. Получить Map<String, Set<String>> цвет / список имен кошек данного цвета
         System.out.println("мапа  цвет - список имен " + task3(catList));
