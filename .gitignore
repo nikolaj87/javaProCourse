@@ -1,6 +1,6 @@
 # Project exclude paths
 /out/
 .idea
-target
+/target
 javaProCourse.iml
 pom.xml
