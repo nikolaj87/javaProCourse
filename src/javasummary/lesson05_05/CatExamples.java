@@ -46,7 +46,7 @@ public class CatExamples {
 
     private static Map<Integer, Integer> task4(List<Cat> list) {
         return list.stream().filter(Cat::isHungry)
-                .collect(Collectors.toMap(Cat::getAge, c -> 1, (i,j) -> i+j));
+                .collect(Collectors.toMap(Cat::getAge, c -> 1, Integer::sum));
     }
 
 }
