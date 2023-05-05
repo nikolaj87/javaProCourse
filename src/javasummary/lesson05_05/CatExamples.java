@@ -20,7 +20,7 @@ public class CatExamples {
         List<Cat> catList = Arrays.asList(cat1, cat2, cat3, cat4, cat5);
 
 
-        // 1. Получить Map<String, Boolean> имя / информация, голодна ли кошка
+        // 1. Получить Map<String, Boolean> имя / информация, голодна ли кошка?
         System.out.println("мапа  имя - голод " + task1(catList));
         // 2. Получить Map<String, Long> цвет / количество кошек данного цвета
         System.out.println("мапа  цвет - кол-во " + task2(catList));
