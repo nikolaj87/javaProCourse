@@ -19,17 +19,17 @@ class LinkedListUser {
         if (head == null) {
             System.out.println("list is empty. No element for delete");
         }
-        //если index = 0 то пользуемся готовым методом
+        //если index <= 0 то пользуемся готовым методом
         if (index <= 0) {
             removeFirst();
             return;
         }
         //иначе смещаемся на index элементов вправо и удаляем его. При привышении списка удалится последний
         Node temp = head;
-        for (int i = 0; i < index - 1; i++) {
-            if (temp.next.next == null) {
-                temp.next = null;
-                return;
+        int count = 0;
+        while(temp.next.next != null) {
+            if (count++ == index - 1) {
+                break;
             }
             temp = temp.next;
         }

@@ -25,7 +25,7 @@ public class Demo {
         list.removeLast();
         list.print();
 
-        list.remove(4);
+        list.remove(1);
         list.print();
     }
 }
