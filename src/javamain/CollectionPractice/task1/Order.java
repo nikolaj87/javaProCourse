@@ -53,4 +53,19 @@ public class Order {
                 ", price=" + price +
                 '}';
     }
+
+
 }
+/*
+         e1 e2 e3 e4 e5
+
+         flatmap =
+
+         e2 e3 e4 e5
+         e3 e4 e5
+         e4 e5
+         e5  Stream<Stream<Integer>>
+
+         e2 e3 e4 e5 ... e3,e4,e5... e4, e5 ...  e5
+
+  */

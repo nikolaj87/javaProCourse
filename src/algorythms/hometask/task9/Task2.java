@@ -22,7 +22,7 @@ public class Task2 {
 
         int[] arr = new int[n];
         arr[0] = 1; //задам явно ведь у них нету двух соседов слева
-        arr[1] = 3;
+        arr[1] = 2;
         for (int i = 2; i < n; i++) {
             arr[i] = arr[i - 1] + arr[i - 2];
         }

@@ -30,7 +30,6 @@ public class Queue {
         }
         count++;
         arr[count] = data;
-
     }
 
     public void remove() {
