@@ -1,6 +1,7 @@
 package algorythms.hometask.task10;
 
 //
+
 class LinkedListUser {
 
     private Node head;
