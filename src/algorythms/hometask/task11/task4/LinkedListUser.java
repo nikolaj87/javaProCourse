@@ -1,10 +1,16 @@
-package algorythms.hometask.task10;
+package algorythms.hometask.task11.task4;
 
 //
 
-class LinkedListUser {
+public class LinkedListUser {
 
     private Node head;
+
+
+    public Node getHead() {
+        return head;
+    }
+
 
     static class Node {
 
@@ -14,6 +20,46 @@ class LinkedListUser {
         public Node(int value) {
             this.value = value;
         }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "value=" + value +
+                    '}';
+        }
+    }
+
+    //новый метод для удаления с конца списка с отступом на n элементов
+    public void removeNthFromTheEnd(int n) {
+        //проверим есть ли вобще хоть 1 элемент для удаления
+        if (head == null) {
+            System.out.println("list is empty. No element for delete");
+        }
+        //если число <= 1 то просто удалим последний
+        if (n <= 1) {
+            removeLast();
+            return;
+        }
+        Node start = head;
+        Node step = head;
+
+        //создадим определенное расстояние между указателями
+        for (int i = 0; i < n; i++) {
+            //если цикл фор еще работает а мы уже пришли в конец списка - значит расстояние
+            //между элем. недостижимое и нам просто надо удалить первый из листа
+            if(step.next == null) {
+                removeFirst();
+                return;
+            }
+            step = step.next;
+        }
+        //и двигаем указатели синхронно в конец листа
+        while (step.next != null) {
+            step = step.next;
+            start = start.next;
+        }
+        //пользуемся стартовым для удаления
+        start.next = start.next.next;
     }
 
     public void remove(int index) {
@@ -28,7 +74,7 @@ class LinkedListUser {
         //иначе смещаемся на index элементов вправо и удаляем его. При привышении списка удалится последний
         Node temp = head;
         int count = 0;
-        while(temp.next.next != null) {
+        while (temp.next.next != null) {
             if (count++ == index - 1) {
                 break;
             }
@@ -40,6 +86,11 @@ class LinkedListUser {
     public void removeLast() {
         //проверим есть ли вобще элемент для удаления. И предыдущему от него присвоим next = null
         if (head == null) return;
+        //если всего 1 элемент то его и удаляем
+        if (head.next == null) {
+            removeFirst();
+            return;
+        }
 
         Node temp = head;
         while (temp.next.next != null) {

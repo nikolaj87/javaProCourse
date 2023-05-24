@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 public class ReqExTask {
     public static void main(String[] args) {
+
         String variable = "1_va";
         System.out.println("variable is valid - " + isValid(variable));
         String ipAddress = "192.168.0.1";
