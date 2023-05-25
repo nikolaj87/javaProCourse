@@ -58,14 +58,14 @@ public class Demo {
             }
         }
         //проверим хвосты
-            while (pointer2 != null) {
-                mergedList.pushToTail(pointer2.value);
-                pointer2=pointer2.next;
-            }
-            while (pointer1 != null) {
-                mergedList.pushToTail(pointer1.value);
-                pointer1 = pointer1.next;
-            }
+        while (pointer2 != null) {
+            mergedList.pushToTail(pointer2.value);
+            pointer2 = pointer2.next;
+        }
+        while (pointer1 != null) {
+            mergedList.pushToTail(pointer1.value);
+            pointer1 = pointer1.next;
+        }
 
         return mergedList;
     }
