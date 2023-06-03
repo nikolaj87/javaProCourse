@@ -58,7 +58,7 @@ public class Dijkstra {
 
             for (Map.Entry<Node, Integer> e : start.getNeighbors().entrySet()) {
                 //кратчайшим путем будет минимальное значение между уже определенным значением минимального пути
-                // и попыткой найти более короткий путь как суммы стоимости пути до ноды start и цены уже пройденного пути
+                // и попыткой найти более короткий путь как суммы стоимости пути ОТ ноды start и цены уже пройденного пути
                 e.getKey().setShortestWay(Math.min(e.getValue() + start.getShortestWay(), e.getKey().getShortestWay()));
             }
 
