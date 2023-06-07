@@ -1,4 +1,4 @@
-package main.java.javasummary.lesson05_05;
+package javasummary.lesson05_05;
 
 import java.util.Arrays;
 import java.util.List;

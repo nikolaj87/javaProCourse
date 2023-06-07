@@ -1,4 +1,4 @@
-package main.java.javatask;
+package javatask;
 
 import java.util.AbstractMap;
 import java.util.List;

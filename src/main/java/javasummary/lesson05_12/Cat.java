@@ -1,4 +1,4 @@
-package main.java.javasummary.lesson05_12;
+package javasummary.lesson05_12;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
