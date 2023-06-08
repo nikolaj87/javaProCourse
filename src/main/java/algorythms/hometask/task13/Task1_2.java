@@ -1,6 +1,6 @@
 package algorythms.hometask.task13;
 
-public class Demo {
+public class Task1_2 {
     public static void main(String[] args) {
         Tree tree = new Tree();
         tree.add(10);

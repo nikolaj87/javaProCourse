@@ -7,6 +7,16 @@ public class Tree {
 
     private Node root = null;
 
+
+    public Node getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node root) {
+        this.root = root;
+    }
+
+
     public void add(int value) {
         Node temp = new Node();
         temp.value = value;
@@ -78,7 +88,7 @@ public class Tree {
     }
 
 
-    public void passNoRecurs () {
+    public void passNoRecurs() {
         //проверяю есть ли рут
         if (root == null) return;
 
@@ -133,9 +143,50 @@ public class Tree {
         }
     }
 
-    private class Node {
+    public Tree fixTree() {
+        //по аналогии с предыдущей задачей делаем полный обход дерева
+        List<Node> listForFix = new ArrayList<>();
+        Node temp = root;
+        Stack<Node> stackForNodes = new Stack<>();
+        while (temp != null || !stackForNodes.isEmpty()) {
+            while (temp != null) {
+                stackForNodes.push(temp);
+                temp = temp.leftChild;
+            }
+            temp = stackForNodes.pop();
+            //превратим наше дерево в список
+            listForFix.add(temp);
+            temp = temp.rightChild;
+        }
+        //отсортируем список по значению value
+        listForFix = listForFix.stream()
+                .sorted((Comparator.comparingInt(o -> o.value)))
+                .toList();
+        //создадим дерево и добавим все элементы в упорядоченом виде
+        //root будет запушен первым поэтому он и останется рутом в новом дереве
+        var newTree = new Tree();
+        int i = listForFix.indexOf(root);
+        int j = listForFix.indexOf(root) + 1;
+
+        while (i >= 0) newTree.add(listForFix.get(i--).value);
+        while (j < listForFix.size()) newTree.add(listForFix.get(j++).value);
+
+        return newTree;
+    }
+
+
+    static class Node {
         int value;
         Node leftChild, rightChild;
+
+
+        public Node() {
+        }
+
+        public Node(int value) {
+            this.value = value;
+        }
+
 
         @Override
         public String toString() {
