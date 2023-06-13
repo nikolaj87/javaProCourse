@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class BuildingServiceTest {
 
@@ -22,7 +22,8 @@ class BuildingServiceTest {
 
         Building building1 = Mockito.mock(Building.class);
         Building building2 = Mockito.mock(Building.class);
-        Building building3 = Mockito.mock(Building.class);
+        Building building3 = new Building("3", 1000);
+
 
         List<Building> buildingList = Arrays.asList(building1, building2, building3);
 
@@ -32,7 +33,14 @@ class BuildingServiceTest {
     void increaseCost() {
         when(br.findAll()).thenReturn(buildingList);
 
-        bs.increaseCost(100);
-        assertEquals(3, buildingList.size());
+        int amount = 100;
+        int expectedRes = 1100;
+
+        bs.increaseCost(amount);
+
+        assertEquals(expectedRes, building3.getCost());
+
+        verify(br, times(1)).findAll();
+        verify(br, times(1)).save(building3);
     }
 }

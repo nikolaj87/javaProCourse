@@ -124,8 +124,6 @@ public class Tree {
         }
     }
 
-    private void passIterative(Node t) {
-    }
 
     // Обход в ширину
     public void pass() {
