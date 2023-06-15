@@ -1,4 +1,4 @@
-package algorythms.hometask.task13;
+package algorythms.hometask.task14;
 
 import java.util.*;
 
@@ -171,6 +171,21 @@ class Tree {
 
         return newTree;
     }
+
+
+    public Tree createInvalidTree(){
+
+        Tree tree = new Tree();
+
+        for (int i = 100000; i > 0 ; i--) {
+            add(i);
+        }
+        for (int i = 100001; i < 200000 ; i++) {
+            add(i);
+        }
+        return tree;
+    }
+
 
 
     static class Node {

@@ -4,7 +4,7 @@
         I'm really eager to receive your feedback on it. That's why I'm sending you this email.
 
         You can find the "tell me about yourself" task in the attached document. I'm looking forward to hearing
-        your response. See you on Friday! Buy!
+        your response. See you on Friday! Bye!
 
         Best regards,
 
@@ -22,5 +22,5 @@
         years, I will work as a backend developer and I hope to secure this position with your company.
             The project, which is attached to my resume, includes all the necessary technologies for creating
         bank programs. I am prepared to engage in discussions regarding technical issues related to the project.
-        If you don't mind, I would be happy to delve into these topics and provide further details.
+        If you don't mind, I would be happy to get down to these topics and provide further details.
 */
