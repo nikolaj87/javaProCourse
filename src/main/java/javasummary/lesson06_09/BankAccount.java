@@ -1,19 +1,30 @@
 package javasummary.lesson06_09;
 
-public class Acc {
+public class BankAccount {
 
     private int sum;
+
+    private void print() {
+        System.out.println("поток " + Thread.currentThread().getName() +
+                " остаток на счету " + sum);
+    }
+
+    public BankAccount(int sum) {
+        this.sum = sum;
+    }
 
     public int getSum() {
         return sum;
     }
 
-    public synchronized void deposit(int amount){
+    public synchronized void depositMoney(int amount){
         sum += amount;
+        print();
     }
 
-    public synchronized void withdraw(int amount){
+    public synchronized void withdrawalMoney(int amount){
         sum -= amount;
+        print();
     }
 
 //    Имеется счет BankAccount, на котором хранится определенная сумма денег (int sum).
