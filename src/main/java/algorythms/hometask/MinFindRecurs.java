@@ -1,4 +1,4 @@
-package main.java.algorythms.hometask;
+package algorythms.hometask;
 
 public class MinFindRecurs {
     public static void main(String[] args) {

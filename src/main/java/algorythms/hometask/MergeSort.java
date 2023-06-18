@@ -1,4 +1,4 @@
-package main.java.algorythms.hometask;
+package algorythms.hometask;
 
 import java.util.Arrays;
 

@@ -5,8 +5,6 @@ import lombok.SneakyThrows;
 public class Process {
     public static void main(String[] args) {
 
-        Object o = new Object();
-
         Manager manager = new Manager();
 
         manager.setCurrent(Actions.PARTS);
