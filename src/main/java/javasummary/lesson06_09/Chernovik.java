@@ -2,10 +2,11 @@ package javasummary.lesson06_09;
 
 public class Chernovik {
     public static void main(String[] args) throws InterruptedException {
+
         BankAccount bankAccount = new BankAccount(20_000);
 
         Runnable husband = ()->{
-            while (bankAccount.getSum() > 1000) {
+            while (bankAccount.getSum() > 1_000) {
                 bankAccount.depositMoney(1_000);
 //                System.out.println("Я заработал 1000, на счету теперь: " + bankAccount.getSum());
             }

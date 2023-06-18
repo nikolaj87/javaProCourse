@@ -3,13 +3,17 @@ package javasummary.lesson06_09;
 public class Demo {
     public static void main(String[] args) {
 
-        BankAccount account = new BankAccount(10000);
+        BankAccount account = new BankAccount(20000);
 
         Wife wife = new Wife(account);
-        Husband husband = new Husband(account);
+        wife.getThrd().setName("Wife");
 
-        wife.getThrd().start();
+        Husband husband = new Husband(account);
+        husband.getThrd().setName("Husband");
+
         husband.getThrd().start();
+        wife.getThrd().start();
+
 
 //        while(true) {
 //

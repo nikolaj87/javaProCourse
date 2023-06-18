@@ -3,7 +3,7 @@ package algorythms.hometask.task14;
 import java.util.*;
 
 // BST
-class Tree {
+class Tree2 {
 
     private Node root = null;
 
@@ -141,7 +141,7 @@ class Tree {
         }
     }
 
-    public Tree fixTree() {
+    public Tree2 fixTree() {
         //по аналогии с предыдущей задачей делаем полный обход дерева
         List<Node> listForFix = new ArrayList<>();
         Node temp = root;
@@ -162,7 +162,7 @@ class Tree {
                 .toList();
         //создадим дерево и добавим все элементы в упорядоченом виде
         //root будет запушен первым поэтому он и останется рутом в новом дереве
-        var newTree = new Tree();
+        var newTree = new Tree2();
         int i = listForFix.indexOf(root);
         int j = listForFix.indexOf(root) + 1;
 
@@ -173,20 +173,48 @@ class Tree {
     }
 
 
-    public Tree createInvalidTree(){
-
-        Tree tree = new Tree();
-
-        for (int i = 100000; i > 0 ; i--) {
-            add(i);
+    //--------------------------------------------------------------------------
+    public Node deleteNode(Node temp, int value) {
+        if (temp == null) {
+            System.out.println("нет элемента для удаления");
+            return null;
         }
-        for (int i = 100001; i < 200000 ; i++) {
-            add(i);
+
+        //ищем элемент для удаления. Если меньше рута то рекурсивно двигаемся влево
+        if (value < temp.value) {
+            temp.leftChild = deleteNode(temp.leftChild, value);
+        //иначе двигаемся рекурсивно вправо
+        } else if (value > temp.value) {
+            temp.rightChild = deleteNode(temp.rightChild, value);
+        } else {
+            // третий вариант - элемент найден и будем его удалять
+
+            // случай без детей или с 1 ребенком прост - просто присвоим найденной ноде
+            // ссылку на найденного ребенка, код вернет leftChild или rightChild или НАЛ. конец.
+            if (temp.leftChild == null) return temp.rightChild;
+            else if (temp.rightChild == null) return temp.leftChild;
+
+            // НО если у ноды 2 ребенка то ситуация сложнее и будет исполняться следующий код
+
+            //будем изменять дерево за счет правого поддерева. Минимальное значение поднимем
+            temp.value = findMinValue(temp.rightChild);
+            //на уровень текущей НОДЫ а в самом поддереве удалим ноду с этим значением.
+            temp.rightChild = deleteNode(temp.rightChild, temp.value);
         }
-        return tree;
+
+        return temp;
+    }
+    // минимальное значение будет самой левой НОДОЙ в правом подддереве
+    private int findMinValue(Node node) {
+        int minValue = node.value;
+        while (node.leftChild != null) {
+            minValue = node.leftChild.value;
+            node = node.leftChild;
+        }
+        return minValue;
     }
 
-
+//------------------------------------------------------------------------------------
 
     static class Node {
         int value;

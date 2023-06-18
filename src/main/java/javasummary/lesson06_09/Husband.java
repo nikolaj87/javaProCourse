@@ -1,8 +1,8 @@
 package javasummary.lesson06_09;
 
-public class Husband implements Runnable{
+public class Husband implements Runnable {
 
-    private Thread thrd;
+    private final Thread thrd;
     private final BankAccount account;
 
     public Husband(BankAccount account) {

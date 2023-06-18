@@ -1,7 +1,13 @@
 package javasummary.lesson06_09;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class ThreadHT {
     public static void main(String[] args) {
+
+        ReentrantLock rl = new ReentrantLock(true);
+//        rl.
+
         int n = 3;
         long t = System.currentTimeMillis();
         System.out.println("numbers found " + countNumbers(n));

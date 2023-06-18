@@ -13,7 +13,8 @@ public class BankAccount {
         this.sum = sum;
     }
 
-    public int getSum() {
+    public synchronized int getSum() {
+        System.out.println(Thread.currentThread().getName() + " get");
         return sum;
     }
 
