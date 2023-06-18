@@ -202,6 +202,9 @@ class Tree2 {
             temp.rightChild = deleteNode(temp.rightChild, temp.value);
         }
 
+
+
+
         return temp;
     }
     // минимальное значение будет самой левой НОДОЙ в правом подддереве
