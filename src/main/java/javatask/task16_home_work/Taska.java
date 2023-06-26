@@ -19,14 +19,12 @@ public class Taska {
         node22.next = node23;
 
 
-
-
         System.out.println(count(node11, node21));
     }
 
     public static int count(Node node1, Node node2) {
 
-        if(node1 == null || node2 == null) {
+        if (node1 == null || node2 == null) {
             System.out.println("input errrrrrrrrrrrrrrrror");
             return -1;
         }
@@ -35,13 +33,13 @@ public class Taska {
         StringBuilder num2 = new StringBuilder();
 
         Node temp = node1;
-        while(temp != null) {
+        while (temp != null) {
             num1.insert(0, temp.value);
             temp = temp.next;
         }
 
         temp = node2;
-        while(temp != null) {
+        while (temp != null) {
             num2.insert(0, temp.value);
             temp = temp.next;
         }
