@@ -20,9 +20,14 @@ public class Taska {
 
 
 }
+<<<<<<< HEAD
 
 //===============================================================================
 class Shop implements Runnable {
+=======
+//===============================================================================
+class Shop implements Runnable{
+>>>>>>> origin/master
     private final Object o1;
     private final Object o2;
     private final Thread thrd;
@@ -67,7 +72,11 @@ class Shop implements Runnable {
 }
 
 //===============================================================================
+<<<<<<< HEAD
 class Part implements Runnable {
+=======
+class Part implements Runnable{
+>>>>>>> origin/master
     private final Object o1;
     private final Object o2;
     private final Thread thrd;
@@ -104,7 +113,10 @@ class Part implements Runnable {
             }
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     private void work() throws InterruptedException {
         System.out.println(" part");
         Thread.sleep(1111);
@@ -113,7 +125,11 @@ class Part implements Runnable {
 }
 
 //===============================================================================
+<<<<<<< HEAD
 class Factory implements Runnable {
+=======
+class Factory implements Runnable{
+>>>>>>> origin/master
     private final Object o1;
     private final Object o2;
     private final Thread thrd;
