@@ -6,14 +6,17 @@ import java.util.List;
 public class KingAndQuins {
     public static void main(String[] args) {
         Cell king = new Cell(1, 1);
+
         Cell quin1 = new Cell(3, 3);
         Cell quin2 = new Cell(1, 7);
         Cell quin3 = new Cell(2, 3);
+        Cell quin4 = new Cell(0, 2);
 
         List<Cell> quins = new ArrayList<>();
         quins.add(quin1);
         quins.add(quin2);
         quins.add(quin3);
+        quins.add(quin4);
         System.out.println("king position " + king);
 
         System.out.println("list of quins " + quins);
@@ -30,6 +33,7 @@ public class KingAndQuins {
         List<Cell> newList = new ArrayList<>();
         int x = 0;
         int y = 0;
+        int size = 7;
 
 
         for (Cell quin : quins) {
@@ -43,7 +47,7 @@ public class KingAndQuins {
 
             y = quin.y;
             x = quin.x;
-            while(y < 7 && x < 7) {
+            while(y < size && x < size) {
                 x++;
                 y++;
             }
@@ -54,6 +58,24 @@ public class KingAndQuins {
                     break;
                 }
                 y--;
+                x--;
+            }
+
+
+
+            y = quin.y;
+            x = quin.x;
+            while(y >= 0 && x < size) {
+                x++;
+                y--;
+            }
+
+            while(y < size && x >= 0) {
+                if (y == king.y && x == king.x) {
+                    flag = true;
+                    break;
+                }
+                y++;
                 x--;
             }
 

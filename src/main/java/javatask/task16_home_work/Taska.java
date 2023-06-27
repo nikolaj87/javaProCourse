@@ -13,8 +13,6 @@ public class Taska {
         Node node21 = new Node(3);
         Node node22 = new Node(2);
         Node node23 = new Node(1);
-
-
         node21.next = node22;
         node22.next = node23;
 
@@ -44,7 +42,8 @@ public class Taska {
             temp = temp.next;
         }
 
-        return Integer.parseInt(String.valueOf(num1)) + Integer.parseInt(String.valueOf(num2));
+        return Integer.parseInt(String.valueOf(num1))
+                + Integer.parseInt(String.valueOf(num2));
     }
 
 }
